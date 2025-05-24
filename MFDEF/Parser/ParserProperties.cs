@@ -1,4 +1,5 @@
-﻿using MFDEF.ValueTypes;
+﻿using System;
+
 using MFDEF.ValueTypes.Numerics;
 using MFDEF.ValueTypes.Experimental;
 
@@ -40,7 +41,7 @@ namespace MFDEF.Parser
 		/// The datatype fallback to use when "Int" is used.
 		/// Defaults to <see cref="MFInt32" />.
 		/// </summary>
-		public IMFValue? FallbackForInt { get; set; }
+		public Type? FallbackForInt { get; set; }
 
 	}
 
