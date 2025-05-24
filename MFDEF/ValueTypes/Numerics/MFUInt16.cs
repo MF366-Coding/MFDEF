@@ -4,15 +4,16 @@
 namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFUInt16 : IMFValue
+	/// <summary>
+	/// Represents a MF's Define unsigned 16-bit integer.
+	/// </summary>
+	public class MFUInt16 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public ushort? Value { get; set; }
+		public new ushort? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define unsigned 16-bit Integer with a value of 0.
@@ -156,21 +157,7 @@ namespace MFDEF.ValueTypes.Numerics
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFUInt16 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is ushort integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFUInt16 value ? this == value : obj is ushort integer && Value == integer;
 
 		}
 

@@ -4,15 +4,16 @@
 namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFInt64 : IMFValue
+	/// <summary>
+	/// Represents a MF's Define 64-bit integer.
+	/// </summary>
+	public class MFInt64 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public long? Value { get; set; }
+		public new long? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define signed 64-bit Integer with a value of 0.
@@ -156,21 +157,9 @@ namespace MFDEF.ValueTypes.Numerics
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFInt64 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is long integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFInt64 value ?
+				this == value
+				: obj is long integer && Value == integer;
 
 		}
 

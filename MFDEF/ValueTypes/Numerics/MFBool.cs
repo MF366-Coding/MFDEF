@@ -4,9 +4,15 @@
 namespace MFDEF.ValueTypes.Numerics
 {
 
+	/// <summary>
+	/// Represents a MF's Define boolean value.
+	/// </summary>
 	public class MFBool : IMFValue
 	{
 
+		/// <summary>
+		/// Bool.
+		/// </summary>
 		public string? Designation { get; set; }
 
 		/// <summary>
@@ -97,21 +103,9 @@ namespace MFDEF.ValueTypes.Numerics
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFBool value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is bool integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFBool value ?
+				this == value
+				: obj is bool integer && Value == integer;
 
 		}
 

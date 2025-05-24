@@ -4,15 +4,16 @@
 namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFUInt64 : IMFValue
+	/// <summary>
+	/// Represents a MF's Define unsigned 64-bit integer.
+	/// </summary>
+	public class MFUInt64 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public ulong? Value { get; set; }
+		public new ulong? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define unsigned 64-bit Integer with a value of 0.
@@ -156,21 +157,7 @@ namespace MFDEF.ValueTypes.Numerics
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFUInt64 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is ulong integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFUInt64 value ? this == value : obj is ulong integer && Value == integer;
 
 		}
 

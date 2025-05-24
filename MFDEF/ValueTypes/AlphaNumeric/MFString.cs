@@ -6,9 +6,15 @@ using MFDEF.ValueTypes.Numerics;
 namespace MFDEF.ValueTypes.AlphaNumeric
 {
 
+	/// <summary>
+	/// Represents a MF's Define UTF-16 encoded string.
+	/// </summary>
 	public class MFString : IMFValue
 	{
 
+		/// <summary>
+		/// String.
+		/// </summary>
 		public string? Designation { get; set; }
 
 		/// <summary>
@@ -108,21 +114,9 @@ namespace MFDEF.ValueTypes.AlphaNumeric
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFString value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is string integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFString value ?
+				this == value
+				: obj is string integer && Value == integer;
 
 		}
 

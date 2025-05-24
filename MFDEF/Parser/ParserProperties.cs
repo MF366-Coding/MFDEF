@@ -1,7 +1,9 @@
-﻿using MFDEF.ValueTypes.Experimental;
+﻿using MFDEF.ValueTypes;
+using MFDEF.ValueTypes.Numerics;
+using MFDEF.ValueTypes.Experimental;
 
 
-namespace MFDEF
+namespace MFDEF.Parser
 {
 
 	/// <summary>
@@ -24,15 +26,21 @@ namespace MFDEF
 
 		/// <summary>
 		/// Whether to allow mutations of any type or not.
-		/// If you wish to disable conditions instead, please see <see cref="AllowConditions"></see> instead.
+		/// If you wish to disable conditions instead, please see <see cref="AllowConditions" /> instead.
 		/// </summary>
 		public bool AllowMutations { get; set; }
 
 		/// <summary>
-		/// Whether to enable MF's Define Experimental Types, such as <see cref="MFInt128"/>, <see cref="MFUInt128"/>, <see cref="MFSignedByte"/> and <see cref="MFStrictNull"/>.
+		/// Whether to enable MF's Define Experimental Types, such as <see cref="MFInt128"/>, <see cref="MFUInt128"/>, <see cref="MFInt8"/> and <see cref="MFStrictNull"/>.
 		/// If set to false and these types are used in the document that will be parsed, an error will be thrown.
 		/// </summary>
 		public bool EnableExperimentalTypes { get; set; }
+
+		/// <summary>
+		/// The datatype fallback to use when "Int" is used.
+		/// Defaults to <see cref="MFInt32" />.
+		/// </summary>
+		public IMFValue? FallbackForInt { get; set; }
 
 	}
 

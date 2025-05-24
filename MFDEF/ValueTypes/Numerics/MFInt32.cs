@@ -1,15 +1,16 @@
 ﻿namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFInt32 : IMFValue
+	/// <summary>
+	/// Represents a MF's Define 32-bit integer.
+	/// </summary>
+	public class MFInt32 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public int? Value { get; set; }
+		public new int? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define signed 32-bit Integer with a value of 0.
@@ -142,21 +143,9 @@
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFInt32 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is int integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFInt32 value ?
+				this == value
+				: obj is int integer && Value == integer;
 
 		}
 

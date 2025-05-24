@@ -3,6 +3,46 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Title>MF's Define for C#</Title>
+		<Authors>Matthew (MF366)</Authors>
+		<Description>MFDEF is a structured, human-friendly markup language designed for both data definition and dynamic value resolution. It blends the simplicity of INI and JSON with advanced features like pointers, constants, mutations, and logic, making it perfect for config-heavy systems, game engines, or modding platforms. </Description>
+		<Copyright>Copyright (c) 2025 MF366</Copyright>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/MF366-Coding/MFDEF</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Markup</PackageTags>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<IsTrimmable>False</IsTrimmable>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<IsTrimmable>False</IsTrimmable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="Icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\Icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>

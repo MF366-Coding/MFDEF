@@ -4,20 +4,21 @@
 namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFInt8 : IMFValue
+	/// <summary>
+	/// Represents a MF's Define byte - unsigned 8-bit integer.
+	/// </summary>
+	public class MFUInt8 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public byte? Value { get; set; }
+		public new byte? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define unsigned 8-bit Integer with a value of 0.
 		/// </summary>
-		public MFInt8()
+		public MFUInt8()
 		{
 
 			Value = 0;
@@ -28,7 +29,7 @@ namespace MFDEF.ValueTypes.Numerics
 		/// <summary>
 		/// Creates a MF's Define unsigned 8-bit Integer.
 		/// </summary>
-		public MFInt8(byte value)
+		public MFUInt8(byte value)
 		{
 
 			Value = value;
@@ -39,7 +40,7 @@ namespace MFDEF.ValueTypes.Numerics
 		/// <summary>
 		/// Creates a MF's Define unsigned 8-bit Integer from another one of the same type.
 		/// </summary>
-		public MFInt8(MFInt8 value)
+		public MFUInt8(MFUInt8 value)
 		{
 
 			Value = value.Value;
@@ -50,7 +51,7 @@ namespace MFDEF.ValueTypes.Numerics
 		/// <summary>
 		/// Creates a MF's Define unsigned 8-bit Integer from a 32-bit integer.
 		/// </summary>
-		public MFInt8(int value)
+		public MFUInt8(int value)
 		{
 
 			Value = Convert.ToByte(value);
@@ -74,37 +75,37 @@ namespace MFDEF.ValueTypes.Numerics
 		/// <summary>
 		/// Increments 1 unit.
 		/// </summary>
-		public static MFInt8 operator ++(MFInt8 a) => new((a.Value ?? 0) + 1);
+		public static MFUInt8 operator ++(MFUInt8 a) => new((a.Value ?? 0) + 1);
 
 		/// <summary>
 		/// Decrements 1 unit.
 		/// </summary>
-		public static MFInt8 operator --(MFInt8 a) => new((a.Value ?? 0) - 1);
+		public static MFUInt8 operator --(MFUInt8 a) => new((a.Value ?? 0) - 1);
 
 		/// <summary>
-		/// Returns the sum of 2 MFInt8s as a MFInt8.
+		/// Returns the sum of 2 MFUInt8s as a MFUInt8.
 		/// </summary>
-		public static MFInt8 operator +(MFInt8 a, MFInt8 b) => new((a.Value ?? 0) + (b.Value ?? 0));
+		public static MFUInt8 operator +(MFUInt8 a, MFUInt8 b) => new((a.Value ?? 0) + (b.Value ?? 0));
 
 		/// <summary>
-		/// Returns the difference of 2 MFInt8s as a MFInt8.
+		/// Returns the difference of 2 MFUInt8s as a MFUInt8.
 		/// </summary>
-		public static MFInt8 operator -(MFInt8 a, MFInt8 b) => new((a.Value ?? 0) - (b.Value ?? 0));
+		public static MFUInt8 operator -(MFUInt8 a, MFUInt8 b) => new((a.Value ?? 0) - (b.Value ?? 0));
 
 		/// <summary>
-		/// Returns the division of 2 MFInt8s as a MFInt8.
+		/// Returns the division of 2 MFUInt8s as a MFUInt8.
 		/// </summary>
-		public static MFInt8 operator /(MFInt8 a, MFInt8 b) => new((a.Value ?? 0) / (b.Value ?? 1)); // use 1 for the second number just to be safe
+		public static MFUInt8 operator /(MFUInt8 a, MFUInt8 b) => new((a.Value ?? 0) / (b.Value ?? 1)); // use 1 for the second number just to be safe
 
 		/// <summary>
-		/// Returns the product of 2 MFInt8s as a MFInt8.
+		/// Returns the product of 2 MFUInt8s as a MFUInt8.
 		/// </summary>
-		public static MFInt8 operator *(MFInt8 a, MFInt8 b) => new((a.Value ?? 0) * (b.Value ?? 0));
+		public static MFUInt8 operator *(MFUInt8 a, MFUInt8 b) => new((a.Value ?? 0) * (b.Value ?? 0));
 
 		/// <summary>
-		/// Returns the remainder of 2 MFInt8s as a MFInt8.
+		/// Returns the remainder of 2 MFUInt8s as a MFUInt8.
 		/// </summary>
-		public static MFInt8 operator %(MFInt8 a, MFInt8 b) => new((a.Value ?? 0) % (b.Value ?? 0));
+		public static MFUInt8 operator %(MFUInt8 a, MFUInt8 b) => new((a.Value ?? 0) % (b.Value ?? 0));
 
 		#endregion
 
@@ -113,42 +114,42 @@ namespace MFDEF.ValueTypes.Numerics
 		/// <summary>
 		/// Is the value anything else but null and 0?
 		/// </summary>
-		public static bool operator true(MFInt8 a) => a.Value != 0 && a.Value is not null;
+		public static bool operator true(MFUInt8 a) => a.Value != 0 && a.Value is not null;
 
 		/// <summary>
 		/// Is the value null or 0?
 		/// </summary>
-		public static bool operator false(MFInt8 a) => a.Value == 0 || a.Value is null;
+		public static bool operator false(MFUInt8 a) => a.Value == 0 || a.Value is null;
 
 		/// <summary>
-		/// Are 2 MFInt8s equal?
+		/// Are 2 MFUInt8s equal?
 		/// </summary>
-		public static bool operator ==(MFInt8 a, MFInt8 b) => a.Value == b.Value;
+		public static bool operator ==(MFUInt8 a, MFUInt8 b) => a.Value == b.Value;
 
 		/// <summary>
-		/// Are 2 MFInt8s different?
+		/// Are 2 MFUInt8s different?
 		/// </summary>
-		public static bool operator !=(MFInt8 a, MFInt8 b) => a.Value != b.Value;
+		public static bool operator !=(MFUInt8 a, MFUInt8 b) => a.Value != b.Value;
 
 		/// <summary>
-		/// Is one MFInt8s greater than the other?
+		/// Is one MFUInt8s greater than the other?
 		/// </summary>
-		public static bool operator >(MFInt8 a, MFInt8 b) => a.Value > b.Value;
+		public static bool operator >(MFUInt8 a, MFUInt8 b) => a.Value > b.Value;
 
 		/// <summary>
-		/// Is one MFInt8s lesser than the other?
+		/// Is one MFUInt8s lesser than the other?
 		/// </summary>
-		public static bool operator <(MFInt8 a, MFInt8 b) => a.Value < b.Value;
+		public static bool operator <(MFUInt8 a, MFUInt8 b) => a.Value < b.Value;
 
 		/// <summary>
-		/// Is one MFInt8s greater or equal in relation to another one?
+		/// Is one MFUInt8s greater or equal in relation to another one?
 		/// </summary>
-		public static bool operator >=(MFInt8 a, MFInt8 b) => a.Value >= b.Value;
+		public static bool operator >=(MFUInt8 a, MFUInt8 b) => a.Value >= b.Value;
 
 		/// <summary>
-		/// Is one MFInt8s lesser or equal in relation to another one?
+		/// Is one MFUInt8s lesser or equal in relation to another one?
 		/// </summary>
-		public static bool operator <=(MFInt8 a, MFInt8 b) => a.Value <= b.Value;
+		public static bool operator <=(MFUInt8 a, MFUInt8 b) => a.Value <= b.Value;
 
 		/// <summary>
 		/// Checks if this instance is equals to another one or to a byte.
@@ -156,21 +157,11 @@ namespace MFDEF.ValueTypes.Numerics
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFInt8 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is byte integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return
+				obj is MFUInt8 value ? // is the object another MFUInt8
+					this == value // if true, is this class equals to the other
+					: obj is byte integer && Value == integer; // if false, then this must be a byte and the values must match
+			// otherwise, false
 
 		}
 

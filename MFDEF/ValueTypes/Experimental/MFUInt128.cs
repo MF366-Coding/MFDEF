@@ -1,18 +1,21 @@
 ﻿using System;
 
+using MFDEF.ValueTypes.Numerics;
+
 
 namespace MFDEF.ValueTypes.Experimental
 {
 
-	public class MFUInt128 : IMFValue
+	/// <summary>
+	/// Represents an experimental MF's Define unsigned 128-bit integer.
+	/// </summary>
+	public class MFUInt128 : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying integer.
 		/// </summary>
-		public UInt128? Value { get; set; }
+		public new UInt128? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define unsigned 128-bit Integer with a value of 0.
@@ -145,21 +148,7 @@ namespace MFDEF.ValueTypes.Experimental
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFUInt128 value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is UInt128 integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFUInt128 value ? this == value : obj is UInt128 integer && Value == integer;
 
 		}
 

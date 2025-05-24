@@ -1,15 +1,16 @@
 ﻿namespace MFDEF.ValueTypes.Numerics
 {
 
-	public class MFDouble : IMFValue
+	/// <summary>
+	/// Represents a MF's Define double-precision floating point.
+	/// </summary>
+	public class MFDouble : MFNumeric
 	{
-
-		public string? Designation { get; set; }
 
 		/// <summary>
 		/// The underlying double.
 		/// </summary>
-		public double? Value { get; set; }
+		public new double? Value { get; set; }
 
 		/// <summary>
 		/// Creates a MF's Define double.
@@ -142,21 +143,7 @@
 		public override bool Equals(object? obj)
 		{
 
-			if (obj is MFDouble value)
-			{
-
-				return this == value;
-
-			}
-
-			if (obj is int integer)
-			{
-
-				return Value == integer;
-
-			}
-
-			return false;
+			return obj is MFDouble value ? this == value : obj is double integer && Value == integer;
 
 		}
 
